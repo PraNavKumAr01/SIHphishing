@@ -4,6 +4,7 @@ pydantic==1.10.9
 pandas
 tensorflow
 langchain
+google-generativeai
 requests
 bs4
 tldextract
