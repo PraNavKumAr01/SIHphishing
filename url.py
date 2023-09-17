@@ -1,7 +1,3 @@
-import sys
-sys.path.append('/Users/pranav/anaconda3/lib/python3.11/site-packages')
-sys.path.append('//Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
-
 import re
 import ssl
 from urllib.parse import urlparse
@@ -10,11 +6,6 @@ from bs4 import BeautifulSoup
 import tldextract
 import whois
 from datetime import datetime
-from langchain.llms import GooglePalm
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain, SequentialChain
-from apikey import APIKEY2
-import os
 from Seo import seoStats
 from Seo2 import indexAndStats
 
