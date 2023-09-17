@@ -1,10 +1,6 @@
-import sys
-sys.path.append('/Users/pranav/anaconda3/lib/python3.11/site-packages')
-sys.path.append('//Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages')
-
-from langchain.llms.google_palm import GooglePalm
+from langchain.llms import GooglePalm
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain, SequentialChain
+from langchain.chains import LLMChain
 from apikey import APIKEY2
 import os
 import json
