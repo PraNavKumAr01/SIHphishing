@@ -3,7 +3,7 @@ uvicorn
 pydantic==1.10.9
 pandas
 tensorflow
-langchain
+langchain==0.0.40
 requests
 bs4
 tldextract
