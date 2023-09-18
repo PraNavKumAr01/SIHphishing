@@ -11,6 +11,13 @@ from bs4 import BeautifulSoup
 import tldextract
 import whois
 from datetime import datetime
+from langchain.llms import GooglePalm
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+from apikey import APIKEY2
+import os
+import json
+import re
 from Seo import seoStats
 from Seo2 import indexAndStats
 
