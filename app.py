@@ -3,6 +3,17 @@ from pydantic import BaseModel
 from url import extract_features
 import pandas as pd
 import tensorflow as tf
+import re
+import ssl
+from urllib.parse import urlparse
+import requests
+from bs4 import BeautifulSoup
+import tldextract
+import whois
+from datetime import datetime
+from Seo import seoStats
+from Seo2 import indexAndStats
+
 
 app = FastAPI()
 
