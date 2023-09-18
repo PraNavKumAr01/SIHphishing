@@ -2,7 +2,7 @@ services:
   # A Docker web service
   - type: web
     name: phishTest
-    runtime: python
+    runtime: python 3.10.10
     plan: free
     autoDeploy: false
     buildCommand: pip install -r requirements.txt
