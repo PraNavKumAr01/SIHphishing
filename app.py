@@ -50,4 +50,4 @@ async def predict_url(url_input: URLInput):
 
         return {"prediction": prediction}
     except Exception as e:
-        return {"prediction": 0}
+        print(e)
