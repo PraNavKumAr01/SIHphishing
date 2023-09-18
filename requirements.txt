@@ -7,4 +7,4 @@ langchain
 requests
 bs4
 tldextract
-whois
+python-whois
