@@ -3,8 +3,21 @@ from pydantic import BaseModel
 from url import extract_features
 import pandas as pd
 import tensorflow as tf
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# ADD THE ACCESS ORIGINS
+origins = ["*"]
+
+# CONFIGURING THE ORIGINS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load your machine learning model
 model_main = tf.keras.models.load_model('my_model.h5')
