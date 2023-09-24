@@ -43,7 +43,10 @@ async def predict_url(url_input: URLInput):
         prediction = model_main.predict(df)
         prediction = float(prediction[0][0])
 
-        return {"prediction": prediction}
+        return {
+            "prediction": prediction
+            "features" : features
+        }
     except Exception as e:
         print(e)
         return {"prediction": 0}
