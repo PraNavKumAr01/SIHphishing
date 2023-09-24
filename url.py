@@ -1,6 +1,7 @@
 import re
 import ssl
 from urllib.parse import urlparse
+from urllib.parse import quote
 import requests
 from bs4 import BeautifulSoup
 import tldextract
