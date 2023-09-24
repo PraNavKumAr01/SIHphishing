@@ -44,7 +44,7 @@ async def predict_url(url_input: URLInput):
         prediction = float(prediction[0][0])
 
         return {
-            "prediction": prediction
+            "prediction": prediction,
             "features" : features
         }
     except Exception as e:
