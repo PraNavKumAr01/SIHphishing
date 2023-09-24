@@ -431,24 +431,32 @@ def extract_features(url):
         print("Error performing WHOIS lookup:", str(e))
 
     # Feature 20: Check for google index and stats
-    google_index = indexAndStats(url)
-    if google_index == True:
-        features["Google_Index"] = 1
-        features["Statistical_report"] = 1
-        # Feature 19: Check for web_traffic,PageRank,backlinks
-        web_traffic,PageRank,backlinks = seoStats(url)
-        if web_traffic <= 200000:
-            features["web_traffic"] = -1
-        else:
+
+    # URL-encode the URL
+    encoded_url = quote(url, safe="")
+
+    # API endpoint URL
+    api_url = f"https://www.ipqualityscore.com/api/json/url/U65ppQwOgV9QLpFJNwGfs8jgXg9pLwBH/{encoded_url}"
+
+    # Send a GET request to the API
+    response = requests.get(api_url)
+
+    # Check the response status code
+    if response.status_code == 200:
+        # API call was successful
+        data = response.json()
+        if data["domain_rank"] < 100000:
+            features["Google_Index"] = 1
+            features["Statistical_report"] = 1
             features["web_traffic"] = 1
-        if PageRank <= 5:
-            features["Page_Rank"] = -1
-        else:
             features["Page_Rank"] = 1
-        if backlinks <= 200:
-            features["Links_pointing_to_page"] = -1
-        else:
             features["Links_pointing_to_page"] = 1
+        else:
+            features["Google_Index"] = -1
+            features["Statistical_report"] = -1
+            features["web_traffic"] = -1
+            features["Page_Rank"] = -1
+            features["Links_pointing_to_page"] = -1
     else:
         features["Google_Index"] = -1
         features["Statistical_report"] = -1
